@@ -1,0 +1,14 @@
+/* components/like/like.wxss */
+.content{
+  display:inline-flex;
+}
+.like{
+  width:32rpx;
+  height:28rpx;
+}
+.content text{
+  position: relative;
+  line-height: 28rpx;
+  bottom:5rpx;
+  font-size: 28rpx;
+}

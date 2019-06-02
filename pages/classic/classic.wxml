@@ -1,0 +1,9 @@
+<!--pages/classic/classic.wxml-->
+<view >
+<v-like bind:like="onLike" like="{{classic.like_status}}" star="{{classic.fav_nums}}"/>
+
+</view>
+<view >
+<image class="image" src="{{classic.image}}"  />
+
+</view>

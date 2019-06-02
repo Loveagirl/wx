@@ -1,0 +1,5 @@
+/* pages/classic/classic.wxss */
+.image{
+    width:750rpx;
+    height:500rpx;
+}

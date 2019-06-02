@@ -1,0 +1,6 @@
+<!--components/like/like.wxml-->
+<view class="content" bind:tap="onLike">
+<image class="like" src="{{like?isLike:noLike}}" />
+<text>{{star}}</text>
+</view>
+
