@@ -1,0 +1,12 @@
+<!--components/date/index.wxml-->
+<view class="container">
+    <view class="index-container">
+    <text>NO.</text>
+    <text class="index">{{_index}}</text>
+    <text class="vertical-line"></text>
+    </view> 
+    <view class="year">
+        <text class="month">六月</text>
+        <text class="month">{{year}}</text>
+    </view>   
+</view>
