@@ -1,8 +1,10 @@
 <!--pages/classic/classic.wxml-->
-<view class="header" >
-<v-date num="{{classic.index}}" />    
-<v-like bind:like="onLike" like="{{classic.like_status}}" star="{{classic.fav_nums}}"/>
-
+<view class="container">
+  <view class="header" >
+    <v-date num="{{classic.index}}" />    
+    <v-like bind:like="onLike" like="{{classic.like_status}}" star="{{classic.fav_nums}}"/>
+  </view>
+  <v-movie text="{{classic.content}}" imgSrc="{{classic.image}}" />
+  <v-navi First="{{isFirst}}"  Latest="{{isLatest}}"  bind:left="onNext" bind:right="onPre" title="{{classic.title}}" class="navi" />
 </view>
-<v-movie text="{{classic.content}}" imgSrc="{{classic.image}}" />
 

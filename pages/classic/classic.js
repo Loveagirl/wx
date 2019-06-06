@@ -9,7 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classic:null
+    classic:null,
+    isLatest:true,
+    isFirst:false
   },
 
   onLike:function(event){
@@ -17,7 +19,25 @@ Page({
      likeModels.like(event.detail.detail,this.data.classic.id,this.data.classic.type)
      console.log("123")
   },
-
+  
+  onNext(){
+    let index = this.data.classic.index
+    classicModels.getNextData(index,(res)=>{
+    console.log(res)
+   })
+  },
+  onPre(){
+      let index = this.data.classic.index
+      classicModels.getPreviousData(index,(res)=>{
+      let latest= classicModels.getLatest(res.index) 
+      let frist =classicModels.isFirsts(res.index)
+       this.setData({
+         classic:res,
+         isLatest:latest,
+         isFirst:frist
+       })
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
