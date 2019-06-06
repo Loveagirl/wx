@@ -1,1 +1,2 @@
 /* components/classic/music/music.wxss */
+@import '../common.wxss'

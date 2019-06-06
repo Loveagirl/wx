@@ -2,9 +2,12 @@
 <view class="container">
   <view class="header" >
     <v-date num="{{classic.index}}" />    
-    <v-like bind:like="onLike" like="{{classic.like_status}}" star="{{classic.fav_nums}}"/>
+    <v-like bind:like="onLike" like="{{like}}" star="{{count}}"/>
   </view>
-  <v-movie text="{{classic.content}}" imgSrc="{{classic.image}}" />
+  <v-movie  wx:if="{{classic.type==100}}"  text="{{classic.content}}" imgSrc="{{classic.image}}" />
+  <v-essay  wx:if="{{classic.type==300}}"  text="{{classic.content}}" imgSrc="{{classic.image}}" />
+  <v-music  wx:if="{{classic.type==200}}"  text="{{classic.content}}" imgSrc="{{classic.image}}" />
+
   <v-navi First="{{isFirst}}"  Latest="{{isLatest}}"  bind:left="onNext" bind:right="onPre" title="{{classic.title}}" class="navi" />
 </view>
 

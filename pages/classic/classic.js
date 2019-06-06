@@ -11,24 +11,34 @@ Page({
   data: {
     classic:null,
     isLatest:true,
-    isFirst:false
+    isFirst:false,
+    like:false,
+    count:0
   },
 
   onLike:function(event){
     console.log(event.detail.detail)
      likeModels.like(event.detail.detail,this.data.classic.id,this.data.classic.type)
-     console.log("123")
+ 
   },
   
   onNext(){
     let index = this.data.classic.index
-    classicModels.getNextData(index,(res)=>{
-    console.log(res)
-   })
+    classicModels.getNextorPreData(index,"next",(res)=>{
+    this._getLikeStatus(res.id,res.type) 
+    let latest= classicModels.getLatest(res.index) 
+    let frist =classicModels.isFirsts(res.index)
+     this.setData({
+       classic:res,
+       isLatest:latest,
+       isFirst:frist
+     })
+    })
   },
   onPre(){
       let index = this.data.classic.index
-      classicModels.getPreviousData(index,(res)=>{
+      classicModels.getNextorPreData(index,"previous",(res)=>{
+      this._getLikeStatus(res.id,res.type) 
       let latest= classicModels.getLatest(res.index) 
       let frist =classicModels.isFirsts(res.index)
        this.setData({
@@ -38,6 +48,14 @@ Page({
        })
       })
   },
+  _getLikeStatus(id,type){
+    likeModels.getClassicLikeStatus(id,type,(res)=>{
+      this.setData({
+        like:res.like_status,
+        count:res.fav_nums
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,7 +63,9 @@ Page({
     classicModels.getClassicData((data)=>{
       console.log(data)
       this.setData({
-        classic:data
+        classic:data,
+        like:data.like_status,
+        count:data.fav_nums
       })
     })
   },

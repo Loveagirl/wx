@@ -1,11 +1,12 @@
 // components/classic/movie/movie.js
+var myBehavior = require('../classic-behavior')
 Component({
   /**
    * 组件的属性列表
    */
+  behaviors:[myBehavior],
   properties: {
-    imgSrc:String,
-    text:String
+   
   },
 
   /**

@@ -5,32 +5,38 @@ class ClassicModels extends Class{
      this.request({
           url:"classic/latest",
           success:(data)=>{
-          this.isLatesr(data.index)
+          this._isLatesr(data.index)
           sCallBack (data)
           }
       })
     }
-    getPreviousData(index,sCallBack){
-        this.request({
-            url:"classic/"+index+"/previous",
-            success:(res)=>{
-                sCallBack(res)
-            }
-        })
+    getNextorPreData(index,NextorPre,sCallBack){
+        let key =NextorPre == 'next' ? this._setKey(index+1) : this._setKey(index-1)
+        let value=wx.getStorageSync(key)
+        if(value){
+            sCallBack(value)
+        }else{
+            this.request({
+                url:`classic/${index}/${NextorPre}`,
+                success:(res)=>{
+                    sCallBack(res)
+                    console.log("123")
+                    wx.setStorageSync(this._setKey(res.index),res)
+                }        
+            })
+        }   
     }
-    getNextData(index,sCallBack){
-        this.request({
-            url:"classic/"+index+"/next",
-            success:(res)=>{
-                sCallBack(res)
-            }
-        })
+    
+   
+
+    _setKey(index){
+        return "classic"+index
     }
 
-    isLatesr(index){
+    _isLatesr(index){
         wx.setStorageSync('index', index)
     }
-
+    
     getLatest(nowIndex){
         let index = wx.getStorageSync('index')
        if( nowIndex == index ){

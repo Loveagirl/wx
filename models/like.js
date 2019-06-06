@@ -13,7 +13,15 @@ class LikeModels extends Class{
         success:function(res){
             console.log(res)
         }
-    })
+      })
+    }
+    getClassicLikeStatus(id,type,sCallBack){
+      this.request({
+          url:`classic/${type}/${id}/favor`,
+          success:function(res){
+              sCallBack(res)
+          }
+      })
     }
 }
 
