@@ -6,7 +6,7 @@
   </view>
   <v-movie  wx:if="{{classic.type==100}}"  text="{{classic.content}}" imgSrc="{{classic.image}}" />
   <v-essay  wx:if="{{classic.type==300}}"  text="{{classic.content}}" imgSrc="{{classic.image}}" />
-  <v-music  wx:if="{{classic.type==200}}"  text="{{classic.content}}" imgSrc="{{classic.image}}" />
+  <v-music  wx:if="{{classic.type==200}}" musicUrl="{{classic.url}}"  text="{{classic.content}}" imgSrc="{{classic.image}}" title="{{classic.image}}" />
 
   <v-navi First="{{isFirst}}"  Latest="{{isLatest}}"  bind:left="onNext" bind:right="onPre" title="{{classic.title}}" class="navi" />
 </view>
