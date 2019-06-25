@@ -1,1 +1,21 @@
 /* pages/book/book.wxss */
+.books-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+ 
+}
+.book{
+    padding:20rpx;
+}
+.head-img{
+    width:106rpx;
+    height:34rpx;
+    margin-top:40rpx;
+}
+.sub-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
