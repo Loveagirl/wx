@@ -1,0 +1,15 @@
+<!--pages/book-detail/detail.wxml-->
+<view class="container">
+ <view class="book-img">
+     <image src="{{book.image}}"></image>
+     <text>{{book.title}}</text>
+     <block wx:key="" wx:for="{{book.author}}">
+        <text>{{item}}</text>
+     </block>
+ </view> 
+ <view class="allTag">
+     <block wx:key="" wx:for="{{comments}}">
+        <v-tag comment="{{item}}"></v-tag>
+     </block>    
+ </view>   
+</view>

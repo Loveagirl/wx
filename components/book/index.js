@@ -4,7 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-   book:Array
+   book:Object,
+   showLike:{
+    type:Boolean,
+    value:true
+  }
   },
 
   /**
@@ -18,6 +22,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goToDetail(){
+      const bid =this.properties.book.id
+      wx.navigateTo({
+        url: `../../pages/book-detail/detail?bid=${bid}`
+      })
+    },
   }
 })
