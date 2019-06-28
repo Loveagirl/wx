@@ -17,11 +17,24 @@
     width:120rpx;
     height: 180rpx;
 }
-.allTag{
-    width: 100%;
+.sub-container{
     margin-top:40rpx;
     background: white;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+.allTag{
+    width: 100%;   
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+.tag{
+    margin-right: 30rpx;
+}
+
+.allTag .tag:nth-child(1){
+  
 }

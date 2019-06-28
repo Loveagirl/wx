@@ -7,9 +7,21 @@
         <text>{{item}}</text>
      </block>
  </view> 
- <view class="allTag">
+ <view class="sub-container">
+ <view class="sub-head">短評</view>
+  <view class="allTag">
      <block wx:key="" wx:for="{{comments}}">
-        <v-tag comment="{{item}}"></v-tag>
+        <v-tag class="tag" comment="{{item}}">
+          <text slot="after">{{'+'+item.nums}}</text>
+        </v-tag>
      </block>    
  </view>   
+ </view>
+<view class="sub-container">
+ <view class="sub-head">内容簡介</view>
+  <view class="litterComment">
+ 
+       
+ </view>   
+ </view>
 </view>
