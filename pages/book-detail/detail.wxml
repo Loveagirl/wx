@@ -1,4 +1,5 @@
 <!--pages/book-detail/detail.wxml-->
+<wxs src="../../utils/filter.wxs" module="tools" />
 <view class="container">
  <view class="book-img">
      <image src="{{book.image}}"></image>
@@ -10,7 +11,7 @@
  <view class="sub-container">
  <view class="sub-head">短評</view>
   <view class="allTag">
-     <block wx:key="" wx:for="{{comments}}">
+     <block wx:key="" wx:for="{{tools.limit(comments,10)}}">
         <v-tag class="tag" comment="{{item}}">
           <text slot="after">{{'+'+item.nums}}</text>
         </v-tag>
@@ -19,9 +20,16 @@
  </view>
 <view class="sub-container">
  <view class="sub-head">内容簡介</view>
-  <view class="litterComment">
- 
-       
- </view>   
+  <text decode="{{true}}" class="litterComment">
+     {{tools.format(book.summary)}}  
+ </text>   
  </view>
+</view>
+<view class="post-container" wx:if="{{!posting}}">
+  <view class="post-fake" bind:tap="onFakePost">
+    <text>输入短评</text>
+  </view>
+   <view class="like-container">
+    <v-like bind:like="onLike" star="{{star}}" like="{{like}}"></v-like>
+    </view>
 </view>

@@ -1,5 +1,4 @@
 import HTTPSP from '../utils/https-p.js'
-
 class Books extends HTTPSP{
    getBookList(){
     return this.request({
@@ -14,6 +13,11 @@ class Books extends HTTPSP{
    getBookComment(id){
       return this.request({
          url:`/book/${id}/short_comment`
+      })
+   }
+   getBookFavor(id){
+      return this.request({
+         url:`/book/${id}/favor`
       })
    }
 }

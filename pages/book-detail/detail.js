@@ -1,5 +1,7 @@
 // pages/book-detail/detail.js
 import BookModels from '../../models/book.js'
+import Like from '../../models/like.js'
+const LikeModel = new Like()
 const Book = new BookModels()
 Page({
 
@@ -8,7 +10,10 @@ Page({
    */
   data: {
     book:{},
-    comments:[]
+    comments:[],
+    posting:false,
+    star:0,
+    like:false
   },
 
   /**
@@ -27,6 +32,17 @@ Page({
       })
       console.log(this.data.comments)
     })
+    Book.getBookFavor(id).then(res=>{
+      this.setData({
+        star:res.fav_nums,
+        like:res.like_status
+      })
+    })
+  },
+ 
+  onLike(event){
+   console.log(event.detail.detail)
+   LikeModel.like(event.detail.detail,this.data.book.id,400)
   },
 
   /**
