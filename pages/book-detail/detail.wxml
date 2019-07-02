@@ -33,3 +33,21 @@
     <v-like bind:like="onLike" star="{{star}}" like="{{like}}"></v-like>
     </view>
 </view>
+<v-mask wx:if="{{posting}}"></v-mask>
+<view wx:if="{{posting}}" class="posting-container">
+   <view class="post-header">
+   <text wx:if="{{!(comments==false)}}">仅可点击标签+1</text>
+   
+    <text wx:else>暂无短评</text>
+   
+    <text class="cancel" bind:tap="onCancel">取消</text>
+   </view>
+     <view class="comment-container">
+     <block wx:key="" wx:for="{{tools.limit(comments,3)}}">
+        <v-tag class="tag" comment="{{item}}">
+          <text slot="after">{{'+'+item.nums}}</text>
+        </v-tag>
+     </block> 
+  </view>
+  <input focus="{{posting}}" confirm-type="发送" class="post" placeholder='短评最多12个字' bindconfirm="onPost"></input>
+</view>

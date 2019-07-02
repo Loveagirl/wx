@@ -44,6 +44,16 @@ Page({
    console.log(event.detail.detail)
    LikeModel.like(event.detail.detail,this.data.book.id,400)
   },
+  onFakePost(){
+    this.setData({
+      posting:true,
+    })
+  },
+  onCancel(){
+    this.setData({
+      posting:false,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
