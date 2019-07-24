@@ -8,7 +8,7 @@ Page({
    */
   data: {
     book:[],
- 
+    show:false,
   },
 
   /**
@@ -25,7 +25,16 @@ Page({
       })
     })
   },
-
+  onSearch:function(event){
+    this.setData({
+      show:true
+    })
+  },
+  cancel:function(event){
+    this.setData({
+      show:false
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

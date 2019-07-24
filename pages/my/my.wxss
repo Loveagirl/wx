@@ -1,1 +1,29 @@
 /* pages/my/my.wxss */
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+.bg{
+    width:750rpx;
+    height:574rpx;
+}
+.avatar-position{
+    position:absolute; 
+    top:255rpx;
+}
+.avatar{
+    width:120rpx;
+    height:120rpx;
+    border-radius: 50%;
+    /* margin-bottom: 10rpx; */
+  }
+  .sub-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 550rpx;
+      padding:100rpx;
+      top:440rpx;
+      position: absolute
+  }

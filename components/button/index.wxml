@@ -1,0 +1,6 @@
+<!--components/button/index.wxml-->
+<button class="container" plain="{{true}}" open-type="{{openType}}" bindgetuserinfo="onGotUserInfo">
+  <slot name="img"></slot>
+</button>
+    <!-- <button class="container" plain='{{true}}'>授权 <slot name="img"></slot></button> -->
+

@@ -5,28 +5,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo:{},
+    hasUserInfo: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.getSetting({
+      success:data=>{
+        if(data.authSetting['scope.userInfo']){
+         wx.getUserInfo({
+           success: (res)=> {
+            this.setData({
+              userInfo:res.userInfo,
+              hasUserInfo: true,
+            })
+           }
+         })
+        }else{
+          this.setData({
+            hasUserInfo: false,
+          })
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
-
+  getUser(e){
+    if(e.detail.userInfo){
+      this.setData({
+        userInfo:e.detail.userInfo,
+        hasUserInfo: true,
+      })
+    } 
+  console.log(e)
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
